@@ -46,7 +46,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         sensorValue = event.values[0]
         if(running){
             stepsValue.setText(""+ sensorValue)
+            val distance = (sensorValue * 78) / 100000.toFloat()
+            distanceValue.setText(""+distance+" km");
         }
+
     }
 
 

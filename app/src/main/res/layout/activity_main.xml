@@ -15,6 +15,15 @@
             android:layout_marginTop="120dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.498"/>
     <TextView
+            android:text="Distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stepsLbl2" android:textSize="50sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/stepsValue" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
             android:text="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,4 +31,12 @@
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginTop="76dp" app:layout_constraintTop_toBottomOf="@+id/stepsLbl"
             app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/distanceValue" android:textSize="35sp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.498" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/stepsLbl2"/>
 </android.support.constraint.ConstraintLayout>
