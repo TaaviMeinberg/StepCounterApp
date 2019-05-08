@@ -7,13 +7,14 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
-
     var running = false
     var sensorManager:SensorManager? = null
+    var sensorValue = 0.0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +36,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onPause() {
         super.onPause()
-        running = false
-        sensorManager?.unregisterListener(this)
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
@@ -44,9 +43,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent) {
+        sensorValue = event.values[0]
         if(running){
-            stepsValue.setText(""+ event.values[0])
+            stepsValue.setText(""+ sensorValue)
         }
-
     }
+
+
 }
