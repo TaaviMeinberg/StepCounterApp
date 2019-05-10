@@ -5,49 +5,50 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import android.support.v7.app.AppCompatActivity
+import android.view.View
+import com.example.test.listener.StepListener
+import com.example.test.utils.StepDetector
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), SensorEventListener {
-    var running = false
-    var sensorManager:SensorManager? = null
-    var sensorValue = 0.0F
+
+class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
+    private var simpleStepDetector: StepDetector? = null
+    private var sensorManager: SensorManager? = null
+    private val TEXT_NUM_STEPS = ""
+    private var numSteps: Int = 0
+
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event!!.sensor.type == Sensor.TYPE_ACCELEROMETER) {
+            simpleStepDetector!!.updateAccelerometer(event.timestamp, event.values[0], event.values[1], event.values[2])
+        }
+    }
+
+    override fun step(timeNs: Long) {
+        numSteps++
+        stepsValue.text = TEXT_NUM_STEPS.plus(numSteps)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Get an instance of the SensorManager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        simpleStepDetector = StepDetector()
+        simpleStepDetector!!.registerListener(this)
+
+        btnStart.setOnClickListener(View.OnClickListener {
+            numSteps = 0
+            sensorManager!!.registerListener(this, sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST)
+        })
+
+        btnStop.setOnClickListener(View.OnClickListener {
+            sensorManager!!.unregisterListener(this)
+        })
     }
-
-    override fun onResume() {
-        super.onResume()
-        running = true
-        var stepsSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
-
-        if (stepsSensor == null){
-            Toast.makeText(this, "No steps counter sensor!", Toast.LENGTH_SHORT).show()
-        } else {
-            sensorManager?.registerListener(this, stepsSensor, SensorManager.SENSOR_DELAY_UI)
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
-    }
-
-    override fun onSensorChanged(event: SensorEvent) {
-        sensorValue = event.values[0]
-        if(running){
-            stepsValue.setText(""+ sensorValue)
-        }
-    }
-
-
 }
