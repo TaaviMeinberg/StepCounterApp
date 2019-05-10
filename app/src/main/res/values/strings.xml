@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Step counter</string>
-    <string name="counter_start">Step counter</string>
-    <string name="counter_stop">Step counter</string>
+    <string name="counter_start">Start counter</string>
+    <string name="counter_stop">Stop counter</string>
     <string name="steps_text">Steps</string>
     <string name="steps_count">0</string>
 </resources>
