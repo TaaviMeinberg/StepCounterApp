@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (event!!.sensor.type == Sensor.TYPE_ACCELEROMETER) {
             simpleStepDetector!!.updateAccelerometer(event.timestamp, event.values[0], event.values[1], event.values[2])
+            stepsValue.setText(""+ numSteps)
+            var distance = (numSteps * 78) / 100.toFloat()
+            if (distance < 1000) {
+                distanceValue.setText("%.0f".format(distance)+" m");
+            } else {
+                distance = distance/1000;
+                distanceValue.setText("%.2f".format(distance)+" km");
+            }
         }
     }
 
