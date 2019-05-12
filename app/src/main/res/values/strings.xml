@@ -5,4 +5,5 @@
     <string name="steps_text">Steps</string>
     <string name="steps_count">0</string>
     <string name="steps_meters">0</string>
+    <string name="last_saved_steps">Last saved steps</string>
 </resources>
