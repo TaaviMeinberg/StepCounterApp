@@ -14,25 +14,32 @@
             android:layout_height="wrap_content"
             android:id="@+id/stepsLbl" android:textSize="50sp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginTop="120dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"/>
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.049"/>
     <TextView
             android:text="@string/steps_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsValue" android:textSize="35sp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/stepsLbl"
-            app:layout_constraintHorizontal_bias="0.501"/>
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSecond"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/stepsLbl"
+            app:layout_constraintVertical_bias="0.07999998"/>
     <TextView
             android:text="@string/steps_meters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/distanceValue" android:textSize="35sp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnStart" app:layout_constraintVertical_bias="0.26"
+            android:layout_marginEnd="8dp"/>
 
     <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnStart"
@@ -42,14 +49,11 @@
             android:background="@drawable/btn_background"
             android:text="@string/counter_start"
             android:textColor="@android:color/white"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="64dp"
-            app:layout_constraintTop_toBottomOf="@+id/distanceValue"
-            app:layout_constraintHorizontal_bias="0.477"
-    />
+            app:layout_constraintVertical_bias="0.65999997"/>
 
     <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnStop"
@@ -60,13 +64,12 @@
             android:background="@drawable/btn_background"
             android:text="@string/counter_stop"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintTop_toBottomOf="@+id/btnStart"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnStart"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.07999998" android:layout_marginTop="8dp"/>
     <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnSecond"
             android:layout_width="240dp"
@@ -74,30 +77,34 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
             android:background="@drawable/btn_background"
-            android:text="Last saved steps"
+            android:text="@string/about_page"
             android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.472"
-            tools:layout_editor_absoluteY="626dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnStop"/>
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.503"
+            android:layout_marginTop="101dp" app:layout_constraintTop_toBottomOf="@+id/btnStop"
+            app:layout_constraintVertical_bias="0.16000003"/>
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="0dp"
-            android:layout_height="34dp"
+            android:layout_width="400dp"
+            android:layout_height="53dp"
             android:id="@+id/progressBar"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:progress="0" android:max="10000" android:progressTint="@color/colorPrimary"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+            android:progress="0" android:max="10000" android:progressTint="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="8dp"
+            android:scrollbarSize="4dp"/>
     <TextView
-            android:text="Daily recommendation"
+            android:text="@string/daily_recommendation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/stepsValue" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/stepsValue" app:layout_constraintVertical_bias="0.046"
+            android:textSize="24sp"/>
 </android.support.constraint.ConstraintLayout>
