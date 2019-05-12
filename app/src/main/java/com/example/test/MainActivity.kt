@@ -34,6 +34,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
                 distance = distance/1000;
                 distanceValue.setText("%.2f".format(distance)+" km");
             }
+            if (numSteps <= 10000) {
+                progressBar.setProgress(numSteps);
+            }
         }
     }
 
