@@ -2,9 +2,12 @@
     <string name="app_name">Step counter</string>
     <string name="counter_start">Start counter</string>
     <string name="counter_stop">Stop counter</string>
-    <string name="steps_text">Steps</string>
+    <string name="steps_text">Steps:</string>
     <string name="steps_count">0</string>
     <string name="steps_meters">0</string>
     <string name="about_page">About</string>
     <string name="daily_recommendation">Daily recommendation</string>
+    <string name="about_title">About</string>
+    <string name="about_stepCount">Step count</string>
+    <string name="about_text">This is your step counter app. The app counts your steps and calculates the distance you have walked. The app gives you daily recommendation. You have a chance to start counting your steps and stop whenever you achieve your daily goal.</string>
 </resources>

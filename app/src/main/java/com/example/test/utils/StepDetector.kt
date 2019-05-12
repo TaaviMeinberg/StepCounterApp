@@ -6,10 +6,7 @@ class StepDetector {
 
     private val ACCEL_RING_SIZE = 50
     private val VEL_RING_SIZE = 10
-
-    // change this threshold according to your sensitivity preferences
     private val STEP_THRESHOLD = 50f
-
     private val STEP_DELAY_NS = 250000000
 
     private var accelRingCounter = 0
@@ -33,7 +30,6 @@ class StepDetector {
         currentAccel[1] = y
         currentAccel[2] = z
 
-        // First step is to update our guess of where the global z vector is.
         accelRingCounter++
         accelRingX[accelRingCounter % ACCEL_RING_SIZE] = currentAccel[0]
         accelRingY[accelRingCounter % ACCEL_RING_SIZE] = currentAccel[1]
@@ -61,6 +57,7 @@ class StepDetector {
             listener!!.step(timeNs)
             lastStepTimeNs = timeNs
         }
+
         oldVelocityEstimate = velocityEstimate
     }
 }

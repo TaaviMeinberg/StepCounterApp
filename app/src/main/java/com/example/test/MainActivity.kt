@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Get an instance of the SensorManager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         simpleStepDetector = StepDetector()
         simpleStepDetector!!.registerListener(this)
@@ -58,9 +57,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
             numSteps = 0
             sensorManager!!.registerListener(this, sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST)
         })
+
         btnStop.setOnClickListener(View.OnClickListener {
             sensorManager!!.unregisterListener(this)
         })
+
         btnSecond.setOnClickListener{
             val intent = Intent(this,SecondActivity::class.java)
             startActivity(intent)
