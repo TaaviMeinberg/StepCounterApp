@@ -1,6 +1,7 @@
 package com.example.test
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -54,9 +55,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
             numSteps = 0
             sensorManager!!.registerListener(this, sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST)
         })
-
         btnStop.setOnClickListener(View.OnClickListener {
             sensorManager!!.unregisterListener(this)
         })
+        btnSecond.setOnClickListener{
+            val intent = Intent(this,SecondActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
